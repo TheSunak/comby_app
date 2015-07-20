@@ -11,9 +11,9 @@
 
 		  <form action="/" method="POST">
 		  	<div class="input-field">
-		      <input type="text" name="first_name" value="<%= @first_name %>" placeholder="Enter First Name"/>
-		      <input type="text" name="last_name" value="<%= @last_name %>" placeholder="Enter Last Name" />
-		 			<input type="text" name="domain" value="<%= @domain %>" placeholder="Enter Domain" />
+		      <input type="text" name="first_name" value="<%= @first_name %>" required placeholder="Enter First Name"/>
+		      <input type="text" name="last_name" value="<%= @last_name %>"required  placeholder="Enter Last Name" />
+		 			<input type="text" name="domain" value="<%= @domain %>" required placeholder="Enter Domain" />
 		 			<input type="submit" value="Run Comby!" id="runButton" class="btn btn-small btn-block btn-primary">
 		 		</div>
   		</form>
@@ -38,9 +38,9 @@
 		    <% if @emails_and_validity  %>
 
 		      <% @emails_and_validity.each do |result| %>
-		        <tr>
-		        	<td><%= result %></td>
-		        </tr>
+						<ul>
+		        	<li><%= result %></li>
+						</ul>
 		      <% end %>
 
 		    <% end %>

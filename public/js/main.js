@@ -6,13 +6,17 @@ if (combyTable.childNodes[1].childElementCount > 0) {
 }
 
 button.addEventListener('click', function() {
-	document.getElementById("combsays").style.display = '';
 
 	while ( combyTable.childNodes[1].firstChild ) {
 		 combyTable.childNodes[1].removeChild(combyTable.childNodes[1].firstChild);
 	}
 
-	if (combyTable.childNodes[1].childElementCount === 0) {
+	var firstName = document.querySelector('form').first_name.value;
+	var lastName = document.querySelector('form').last_name.value;
+	var domain = document.querySelector('form').domain.value;
+
+	if (firstName && lastName && domain ) {
+		document.getElementById("combsays").style.display = '';
 		document.querySelector(".preloader-wrapper").style.display = '';
 	}
 });
