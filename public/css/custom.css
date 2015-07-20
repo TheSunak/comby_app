@@ -5,3 +5,7 @@
 .btn.btn-primary {
 	background-color: #03A9F4;
 }
+
+#results li {
+	padding: 0.5em 0;
+}

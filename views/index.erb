@@ -32,19 +32,13 @@
 		  </div>
 		</div>
 
-		<table id="results" class="centered">
-		  <tbody>
-
+		<div id="results" class="centered">
 		    <% if @emails_and_validity  %>
-
+					<ul id="staggered-test">
 		      <% @emails_and_validity.each do |result| %>
-						<ul>
 		        	<li><%= result %></li>
-						</ul>
 		      <% end %>
-
+					</ul>
 		    <% end %>
-
-		  </tbody>
-		</table>
+		</div>
 </div>
