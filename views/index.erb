@@ -1,2 +1,44 @@
-<h1>Welcome to Swoonatra!</h1>
-<p>This is where you would write your ERB / HTML.</p>
+<br>
+<br>
+
+<h1 style = "margin: 0 auto; text-align: center;">Welcome to Comby!</h1>
+
+<div class="row">
+
+<img src="http://customshaving.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/2/12t_-_2.jpg" class = "responsive-img" style= "margin: 0 auto; padding-left: 450px">
+
+  <form action="/" method="POST" class = "col s12">  
+  	<div class="input-field col s6">
+      <input type="text" name="first_name" value="<%= @first_name %>" placeholder="Enter First Name" class="span3" style = "margin: 0 auto; width: 50%; margin-left: 600px" />
+      <input type="text" name="last_name" value="<%= @last_name %>" placeholder="Enter Last Name" class="span3" style = "margin: 0 auto; width: 50%; margin-left: 600px" />
+ 			<input type="text" name="domain" value="<%= @domain %>" placeholder="Enter Domain" class="span3" style = "margin: 0 auto; width: 50%; margin-left: 600px" />
+ 			<br> <br>
+ 			<input type="submit" value="Run Comby!" class="btn btn-small btn-block btn-primary" style = "margin-left: 600px">
+
+ 		</div>	
+ 	
+  </form>
+
+  <div class="input-field col s12">
+
+	<h3 style= "padding-left: 600px; width:">Comby says...</h3>
+</div>
+
+</div>
+
+<table id="results" class="centered">
+  <tbody>
+
+    <% if @emails_and_validity  %>
+
+      <% @emails_and_validity.each do |result| %>
+        <tr>
+                
+            <td><%= result %></td>              
+        </tr>
+      <% end %>
+
+    <% end %>
+
+  </tbody>
+</table>

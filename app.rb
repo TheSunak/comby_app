@@ -13,9 +13,13 @@ require_relative 'environment'
 require 'sinatra/flash'
 require 'sinatra/redirect_with_flash'
 
+# Require all Ruby gems located in Gemfile.
+require 'bundler'
+Bundler.require
+
 # Rename 'AppName' to name of choice.
 # => Update 'AppName' : config.ru // spec_helper.rb
-module AppName
+module Comby
   class App < Sinatra::Application
     register Sinatra::ActiveRecordExtension
 
@@ -39,6 +43,18 @@ module AppName
     get '/' do
       erb :index
     end
+
+    post '/' do
+      @first_name   = params[:first_name]
+      @last_name    = params[:last_name]
+      @domain       = params[:domain]
+      
+      @emailcombos                = Combos.get_combos(@first_name, @last_name, @domain)
+      @emails_and_validity        = Combos.get_valid_on_combos(@emailcombos)
+
+      erb :index
+    end
+
 
     # Helpers
     # => define helper methods.
