@@ -11,7 +11,13 @@ gem 'sinatra-activerecord'
 gem 'sinatra-flash'               # Sinatra flash capability.
 gem 'sinatra-redirect-with-flash'
 
+gem 'foreman'
+
 gem 'rake'
+
+gem 'email_verifier'
+
+gem 'activesupport'
 
 group :development, :test do
   gem 'tux'                       # CLI for models / methods.
