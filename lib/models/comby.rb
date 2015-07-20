@@ -48,9 +48,13 @@ class Combos
 	def self.get_valid_on_combos(combos)
 
 		results = []
-		
+
 		combos.each do |email|
-			results.push("#{email}, #{EmailVerifier.check(email)}")
+			begin
+				results.push("#{email}, #{EmailVerifier.check(email)}")
+			rescue
+				results.push("There was an error with the email #{email}, please try again")
+			end
 		end
 
 		results
