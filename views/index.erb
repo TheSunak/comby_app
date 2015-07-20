@@ -9,52 +9,42 @@
 
 		<img src="/img/kentcomb.png" class = "responsive-img">
 
-		  <form action="/" method="POST">  
+		  <form action="/" method="POST">
 		  	<div class="input-field">
 		      <input type="text" name="first_name" value="<%= @first_name %>" placeholder="Enter First Name"/>
 		      <input type="text" name="last_name" value="<%= @last_name %>" placeholder="Enter Last Name" />
 		 			<input type="text" name="domain" value="<%= @domain %>" placeholder="Enter Domain" />
-		 			
 		 			<input type="submit" value="Run Comby!" id="runButton" class="btn btn-small btn-block btn-primary">
-
-		 	</div>	
- 	
+		 		</div>
   		</form>
+
+		<h3 id="combsays" style="display: none">Comby says...</h3>
+
+		<div class="preloader-wrapper big active" style="display: none">
+		  <div class="spinner-layer spinner-blue-only">
+		    <div class="circle-clipper left">
+		      <div class="circle"></div>
+		    </div><div class="gap-patch">
+		      <div class="circle"></div>
+		    </div><div class="circle-clipper right">
+		      <div class="circle"></div>
+		    </div>
+		  </div>
 		</div>
 
+		<table id="results" class="centered">
+		  <tbody>
 
-  <div class="col s4 offset-s4 center">
+		    <% if @emails_and_validity  %>
 
-	<h3 class="combsays" style = "display: none">Comby says...</h3>
+		      <% @emails_and_validity.each do |result| %>
+		        <tr>
+		        	<td><%= result %></td>
+		        </tr>
+		      <% end %>
 
-	<div class="preloader-wrapper big active" style = "display: none">
-	  <div class="spinner-layer spinner-blue-only">
-	    <div class="circle-clipper left">
-	      <div class="circle"></div>
-	    </div><div class="gap-patch">
-	      <div class="circle"></div>
-	    </div><div class="circle-clipper right">
-	      <div class="circle"></div>
-	    </div>
-	  </div>
-	</div>
+		    <% end %>
 
-<table id="results" class="centered">
-  <tbody>
-
-    <% if @emails_and_validity  %>
-
-      <% @emails_and_validity.each do |result| %>
-        <tr>
-                
-            <td><%= result %></td>              
-        </tr>
-      <% end %>
-
-    <% end %>
-
-  </tbody>
-</table>
-</div>
-	</div>
+		  </tbody>
+		</table>
 </div>
