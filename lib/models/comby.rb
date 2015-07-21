@@ -69,7 +69,7 @@ class Combos
 		end
 
 		if number_of_trues == 12
-			return results = [[:email => "No Emails", :valid => "could be verified"]]
+			return results = [[:email => "No Emails", :valid => "Nope, sorry :("]]
 
 		else
 			results	
