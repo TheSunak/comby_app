@@ -54,9 +54,10 @@ class Combos
 			begin
 
 				if EmailVerifier.check(email)
-					results.push("#{email}, #{EmailVerifier.check(email)}")
-					number_of_trues = number_of_trues + 1
+					number_of_trues = number_of_trues + 1		
 				end
+
+				results.push("#{email}, #{EmailVerifier.check(email)}")
 
 			rescue
 				results.push("There was an error with the email #{email}, please try again")
