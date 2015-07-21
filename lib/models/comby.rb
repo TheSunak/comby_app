@@ -48,16 +48,28 @@ class Combos
 	def self.get_valid_on_combos(combos)
 
 		results = []
+		number_of_trues = 0
 
 		combos.each do |email|
 			begin
-				results.push("#{email}, #{EmailVerifier.check(email)}")
+
+				if EmailVerifier.check(email)
+					results.push("#{email}, #{EmailVerifier.check(email)}")
+					number_of_trues = number_of_trues + 1
+				end
+
 			rescue
 				results.push("There was an error with the email #{email}, please try again")
 			end
 		end
 
-		results
+		if number_of_trues == 12
+			return ["I can't verify that email address :("]	
+
+		else
+			results	
+		end
+		
 
 	end
 
