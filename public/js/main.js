@@ -5,7 +5,7 @@ if (resultList.childElementCount > 0) {
 	Materialize.showStaggeredList('#staggered-test');
 }
 
-document.getElementById('runButton').addEventListener('mousedown', function() {
+	document.getElementById('runButton').addEventListener('mousedown', function() {
 	document.getElementById("combsays").style.display = '';
 	document.querySelector(".preloader-wrapper").style.display = '';
 

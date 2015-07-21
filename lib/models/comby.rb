@@ -49,23 +49,27 @@ class Combos
 
 		results = []
 		number_of_trues = 0
+		count = 0
 
 		combos.each do |email|
 			begin
 
 				if EmailVerifier.check(email)
-					number_of_trues = number_of_trues + 1		
+					number_of_trues = number_of_trues + 1
 				end
 
-				results.push("#{email}, #{EmailVerifier.check(email)}")
+				results[count] = [:email => email, :valid => EmailVerifier.check(email)]
 
 			rescue
-				results.push("There was an error with the email #{email}, please try again")
+				results[count] = [:email => email, :valid => "There was an error with #{email}"]
 			end
+		
+		count = count + 1
+
 		end
 
 		if number_of_trues == 12
-			return ["I can't verify that email address :("]	
+			return results[0] = [:email => "None", :valid => "could be verified"]
 
 		else
 			results	

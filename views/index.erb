@@ -32,13 +32,32 @@
 		  </div>
 		</div>
 
+
+
 		<div id="results" class="centered">
 		    <% if @emails_and_validity  %>
-					<ul id="staggered-test">
+					
+		    	<table id="staggered-test" class = "col s12 m12 offset-m2 center">
+					<tr>
+						<td><b> Email </td></b>
+
+						<td><b> Valid? </td></b>
+					</tr>		
+
 		      <% @emails_and_validity.each do |result| %>
-		        	<li><%= result %></li>
+		      	<% result.each do |value| %>
+		        	<tr>
+		        		<td>
+		        			<%= value[:email] %>
+		        		</td>
+		        	
+		        		<td style = width="100px">
+		        			<%= value[:valid] %>
+		        		</td>
+		        </tr>
+		        <% end %> 		      		
 		      <% end %>
-					</ul>
+					</table>
 		    <% end %>
 		</div>
 </div>

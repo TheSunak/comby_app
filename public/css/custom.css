@@ -6,6 +6,11 @@
 	background-color: #03A9F4;
 }
 
-#results li {
+td {
+	width: 200px;
+}
+
+
+#value td {
 	padding: 0.5em 0;
 }
